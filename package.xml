@@ -4,7 +4,7 @@
   ~ Email: ray.tunstill@gmail.com
 -->
 
-<package format="2">
+<package format="3">
   <name>topic_store</name>
   <version>0.1.8</version>
   <description>
@@ -49,4 +49,8 @@
 
   <test_depend>mongodb</test_depend> <!-- Test uses system docker so CI works -->
   <test_depend version_gte="3.3.2">python-pytest</test_depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+
 </package>
