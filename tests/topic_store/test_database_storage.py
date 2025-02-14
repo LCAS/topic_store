@@ -102,4 +102,4 @@ class TestDatabase:
 if __name__ == '__main__':
     TestDatabase().test_documents()
     TestDatabase().test_image_encoding()
-    #TestDatabase().test_large_document()
+    TestDatabase().test_large_document()
