@@ -1,0 +1,7 @@
+{
+  "name": "noetic desktop",
+  "build": {
+    "dockerfile": "../docker/Dockerfile.ci",
+    "context": "..",
+  }
+}

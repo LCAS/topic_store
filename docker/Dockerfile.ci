@@ -1,17 +1,17 @@
-FROM ros:melodic
+FROM ros:noetic
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV WORKSPACE_DIR /catkin_ws
+ENV DEBIAN_FRONTEND=noninteractive
+ENV WORKSPACE_DIR=/catkin_ws
 
 RUN bash -c 'apt-get clean && apt-get -y update && apt-get install -y locales curl software-properties-common \
     && locale-gen en_US.UTF-8 && echo en_GB.UTF-8 UTF-8 > /etc/locale.gen \
-    && apt-get -y update && apt-get -y upgrade && apt-get install -y ros-melodic-ros-numpy \
-    "python-"{catkin-tools,gridfs,bson,pip,pytest,pytest-mock,pathlib} && \
+    && apt-get -y update && apt-get -y upgrade && apt-get install -y ros-noetic-ros-numpy \
+    "python3-"{catkin-tools,gridfs,bson,pip,pytest,pytest-mock} && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && apt-get clean'
 
 COPY . $WORKSPACE_DIR/src/topic_store
 
-RUN bash -c '. /opt/ros/melodic/setup.bash && cd $WORKSPACE_DIR && \
+RUN bash -c '. /opt/ros/noetic/setup.bash && cd $WORKSPACE_DIR && \
     catkin_init_workspace && catkin build'
 
 WORKDIR $WORKSPACE_DIR
