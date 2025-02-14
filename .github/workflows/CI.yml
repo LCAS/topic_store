@@ -1,9 +1,16 @@
-name: Topic Store
-on: [push, pull_request, release]
+name: Topic Store CI
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  
 jobs:
   ros_setup:
     name: Topic Store Tests
-    runs-on: ubuntu-18.04 # host machine not container OS
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
