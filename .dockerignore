@@ -1,0 +1,4 @@
+.github/
+.devcontainer/devcontainer.json
+Dockerfile*
+docker-compose*yaml
